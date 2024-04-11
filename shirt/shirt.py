@@ -4,26 +4,25 @@ from PIL import Image, ImageOps
 arguments = sys.argv[1:]
 
 type_in, type_out = arguments[0].split('.')[1].lower(), arguments[1].split('.')[1].lower()
-valid_fomats = ('jpg', 'jpeg', 'png')
+valid_formats = ('jpg', 'jpeg', 'png')
 
 def valid_input():
     if len(arguments) > 2:
         print("Too many command-line arguments")
         sys.exit(1)
     elif len(arguments) < 2:
-        print("Too many command-line arguments")
+        print("Too few command-line arguments")
         sys.exit(1)
-    elif type_in not in valid_fomats:
+    elif type_in not in valid_formats:
         print("Invalid input")
         sys.exit(1)
-    elif type_out not in valid_fomats:
+    elif type_out not in valid_formats:
         print("Invalid output")
         sys.exit(1)
     elif type_in != type_out:
         print("Input and output have different extensions")
         sys.exit(1)
     return True
-
 
 def main():
     if valid_input():
