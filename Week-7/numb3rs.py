@@ -4,14 +4,14 @@ def main():
     print(validate(input("IPv4 address: ").strip()))
 
 def validate(ip):
-    match =  re.search(r"^([0-9]+)\.([0-9]+)\.([0-9]+)\.([0-9]+)$", ip)
-
-    if match:
-        for i in range(1,5):
-            if int(match.group(i)) > 255 or int(match.group(i)) < 0:
+    if match :=  re.search(r"^(\d+)\.(\d+)\.(\d+)\.(\d+)$", ip):
+        numbers = ip.split(".")
+        for i in numbers:
+            if (int(i) < 0 or int(i) > 255):
                 return False
         return True
-    return False
+    else:
+        return False
 
 if __name__ == '__main__':
     main()
