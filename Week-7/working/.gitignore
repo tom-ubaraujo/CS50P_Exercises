@@ -1,0 +1,4 @@
+__pycache__/
+.week7/
+.pytest_cache/
+.working/
